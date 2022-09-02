@@ -1,11 +1,10 @@
+import Login from "./pages/Login"
+
 function App() {
 
   return (
-    <div className="bg-gray-100">
-     <h3
-     className='
-     '
-     >Hello World</h3>
+    <div>
+      <Login/>
     </div>
   )
 }
