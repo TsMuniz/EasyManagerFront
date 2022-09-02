@@ -24,9 +24,9 @@ export default function LoginForm() {
   const onSubmit = data => console.log(data);
 
   return (
-    <section className='w-full h-full bg-gray-200 flex flex-col  items-center space-y-10 shadow-md'>
+    <section className='w-full h-content bg-gray-200 flex flex-col  items-center  shadow-md'>
         <img
-        className='h-[300px] w-[300px]' 
+        className='h-[400px] w-[400px]' 
         src={loginImage} 
         alt="" 
         />
@@ -45,6 +45,7 @@ export default function LoginForm() {
               className='shadow h-12 bg-white flex px-2'
               >
               <input 
+               className='outline-none'
                 placeholder='*********'
                 {...register('password')}
                 type={showPassword ? 'password' : 'text'} 
