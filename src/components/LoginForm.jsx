@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom'
 import loginImage from '../assets/loginImage.svg'
 import {FaRegEyeSlash} from 'react-icons/fa'
 import {FaRegEye} from 'react-icons/fa'
+import { useForm } from 'react-hook-form'
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(true)
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
 
   return (
     <section className='xsm:w-full xsm:h-full bg-slate-50 flex flex-col  items-center gap-10 shadow-md'>
@@ -14,16 +18,21 @@ export default function LoginForm() {
         alt="" 
         />
 
-        <form className='flex flex-col gap-8 py-3'>
+        <form 
+          className='flex flex-col gap-8 py-3'
+          onSubmit={handleSubmit(onSubmit)}
+        >
             <input
               className='shadow h-10 px-2' 
               placeholder='email@email.com'
+              {...register, 'email'}
               type="text" />
             <div
               className='shadow h-10 flex px-2'>
               <input 
                 className='px-2' 
                 placeholder='*********'
+                {...register, 'password'}
                 type={showPassword ? 'password' : 'text'} 
               />
               {!showPassword && <FaRegEyeSlash 
