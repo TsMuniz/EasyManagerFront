@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import loginImage from '../assets/loginImage.svg'
 export default function LoginForm() {
   return (
@@ -6,7 +7,9 @@ export default function LoginForm() {
         <img
         className='h-[300px] w-[300px]' 
         src={loginImage} 
-        alt="" />
+        alt="" 
+        />
+        
         <form className='flex flex-col gap-8 py-3'>
             <input
               className='shadow h-10 px-2' 
@@ -19,9 +22,16 @@ export default function LoginForm() {
             <button className='bg-accent h-10 text-white text-base rounded-md'>
                 Entre
             </button>
-            <button className='bg-accent h-10 text-white text-base rounded-md'>
+
+            <Link
+              to="/register"                
+            >
+              <button
+                className='bg-accent h-10 w-full text-white text-base text rounded-md'
+              >
                 Cadastre-se
-            </button>
+              </button>
+            </Link>
         </form>
     </section>
     
