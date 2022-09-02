@@ -4,14 +4,27 @@ import loginImage from '../assets/loginImage.svg'
 import {FaRegEyeSlash} from 'react-icons/fa'
 import {FaRegEye} from 'react-icons/fa'
 import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import ErrorMessage from './ErrorMessage'
+
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(true)
 
-  const { register, handleSubmit } = useForm();
+  const schema = yup.object({
+    email: yup.string().email().required(),
+    password: yup.string().required().min(6),
+  }).required();
+
+  const { register, handleSubmit, formState:{ errors }} = useForm({
+    resolver: yupResolver(schema)
+  });
+
+  
   const onSubmit = data => console.log(data);
 
   return (
-    <section className='xsm:w-full xsm:h-full bg-slate-50 flex flex-col  items-center gap-10 shadow-md'>
+    <section className='w-full h-full bg-gray-200 flex flex-col  items-center space-y-10 shadow-md'>
         <img
         className='h-[300px] w-[300px]' 
         src={loginImage} 
@@ -19,17 +32,17 @@ export default function LoginForm() {
         />
 
         <form 
-          className='flex flex-col gap-8 py-3'
+          className='flex flex-col space-y-10 py-3'
           onSubmit={handleSubmit(onSubmit)}
         >
             <input
-              className='shadow h-10 px-2' 
+              className='shadow h-12 px-2' 
               placeholder='email@email.com'
               {...register('email')}
               type="text" />
-              
+              <ErrorMessage error={errors} inputName={'email'}/>
             <div
-              className='shadow h-10 flex px-2'
+              className='shadow h-12 bg-white flex px-2'
               >
               <input 
                 placeholder='*********'
@@ -46,8 +59,9 @@ export default function LoginForm() {
                 className='self-center'
               />}
             </div>
+            <ErrorMessage error={errors} inputName={'password'}/>
 
-            <button className='bg-accent h-10 text-white text-base rounded-md'>
+            <button className='bg-accent h-12 text-white text-base rounded-md'>
                 Entre
             </button>
 
@@ -55,7 +69,7 @@ export default function LoginForm() {
               to="/register"                
             >
               <button
-                className='bg-accent h-10 w-full text-white text-base text rounded-md'
+                className='bg-accent h-12 w-full text-white text-base text rounded-md'
               >
                 Cadastre-se
               </button>
