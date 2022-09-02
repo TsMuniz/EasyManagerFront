@@ -15,21 +15,25 @@ export default function RegisterForm() {
             placeholder='Nome'
             type="text" 
             />
+
             <Input 
             placeholder='Email'
             type="text" 
             />
+
             <Input 
             placeholder='Cargo'
             type="text" 
             />
+
             <Input 
             placeholder='Matricula'
             type="text" 
             />
+            
             <Input 
             placeholder='Senha'
-            type="text" 
+            type="" 
             />
 
             <button
