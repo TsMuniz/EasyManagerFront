@@ -9,7 +9,7 @@ export default function LoginPageTemplate({children}) {
             items-center
             h-screen
             w-full
-            bg-gray-100
+            bg-gray-200
         '
     >{children}</div>
   )

@@ -26,7 +26,7 @@ export default function LoginForm() {
   return (
     <section className='w-full h-content bg-gray-200 flex flex-col  items-center  shadow-md'>
         <img
-        className='h-[400px] w-[400px]' 
+        className='h-[400px] w-[400px] drop-shadow-2xl' 
         src={loginImage} 
         alt="" 
         />
@@ -36,7 +36,7 @@ export default function LoginForm() {
           onSubmit={handleSubmit(onSubmit)}
         >
             <input
-              className='shadow h-12 px-2' 
+              className='shadow h-12 px-2 outline-none' 
               placeholder='email@email.com'
               {...register('email')}
               type="text" />
@@ -62,7 +62,7 @@ export default function LoginForm() {
             </div>
             <ErrorMessage error={errors} inputName={'password'}/>
 
-            <button className='bg-accent h-12 text-white text-base rounded-md'>
+            <button className='bg-accent h-12 text-white text-base'>
                 Entre
             </button>
 
@@ -70,7 +70,7 @@ export default function LoginForm() {
               to="/register"                
             >
               <button
-                className='bg-accent h-12 w-full text-white text-base text rounded-md'
+                className='bg-accent h-12 w-full text-white text-base text'
               >
                 Cadastre-se
               </button>
