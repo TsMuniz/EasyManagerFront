@@ -25,28 +25,28 @@ export default function LoginForm() {
             <input
               className='shadow h-10 px-2' 
               placeholder='email@email.com'
-              {...register, 'email'}
+              {...register('email')}
               type="text" />
+              
             <div
-              className='shadow h-10 flex px-2'>
+              className='shadow h-10 flex px-2'
+              >
               <input 
-                className='px-2' 
                 placeholder='*********'
-                {...register, 'password'}
+                {...register('password')}
                 type={showPassword ? 'password' : 'text'} 
               />
               {!showPassword && <FaRegEyeSlash 
                 onClick={() => setShowPassword(!showPassword)}
               
-              className='self-center'
+                className='self-center'
               />}
               {showPassword && <FaRegEye 
                 onClick={() => setShowPassword(!showPassword)}              
-              className='self-center'
+                className='self-center'
               />}
-              
-            
             </div>
+
             <button className='bg-accent h-10 text-white text-base rounded-md'>
                 Entre
             </button>
