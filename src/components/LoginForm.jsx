@@ -53,19 +53,23 @@ export default function LoginForm() {
               {!showPassword && <FaRegEyeSlash 
                 onClick={() => setShowPassword(!showPassword)}
               
-                className='self-center'
+                className='self-center cursor-pointer'
               />}
               {showPassword && <FaRegEye 
                 onClick={() => setShowPassword(!showPassword)}              
-                className='self-center'
+                className='self-center cursor-pointer'
               />}
             </div>
             <ErrorMessage error={errors} inputName={'password'}/>
 
-            <button className='bg-accent h-12 text-white text-base'>
+            <Link
+              to="/admin-painel"
+            >
+            <button className='bg-accent h-12 w-full text-white text-base'>
                 Entre
             </button>
 
+            </Link>
             <Link
               to="/register"                
             >
