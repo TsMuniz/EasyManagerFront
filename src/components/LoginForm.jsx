@@ -24,7 +24,7 @@ export default function LoginForm() {
   const onSubmit = data => console.log(data);
 
   return (
-    <section className='w-full h-content bg-gray-200 flex flex-col  items-center  shadow-md'>
+    <section className='w-full h-content bg-gray-200 flex flex-col  items-center '>
         <img
         className='h-[400px] w-[400px] drop-shadow-2xl' 
         src={loginImage} 

@@ -9,6 +9,8 @@ export default function RegisterPageTemplate({children}) {
         flex justify-center items-center
         bg-gray-100
     '
-    >{children}</div>
+    >
+      {children}
+    </div>
   )
 }
